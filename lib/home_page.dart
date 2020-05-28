@@ -1,18 +1,17 @@
-import 'package:flutter/material.dart'; 
-
-
-
+import 'package:flutter/material.dart';
 
 class SlidingCardsView extends StatefulWidget {
   @override
   _SlidingCardsViewState createState() => _SlidingCardsViewState();
 }
+
 const maincolor = const Color(0xffFF3636);
 const scndcolor = const Color(0xffFF9999);
 const navcolor = const Color(0xffFFEDED);
+
 class _SlidingCardsViewState extends State<SlidingCardsView> {
   PageController pageController;
-  
+
   @override
   void initState() {
     super.initState();
@@ -27,119 +26,144 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
 
   @override
   Widget build(BuildContext context) {
-    return 
-    Scaffold(body:
-    
-        Stack(
-          
-         children: <Widget>[
-         Positioned(
-           bottom: 0,
-            child:  Container(
-         
-             height: MediaQuery.of(context).size.height * 0.9,
-             width: 55,
-            alignment: Alignment.bottomCenter,
-             decoration: new BoxDecoration(
-              color: navcolor,
-              borderRadius: new BorderRadius.only(
-                
-                topRight: const Radius.circular(80.0),
-              ),)
-             
-              
-            
-    ),
-          ),
-          
-        Container(child: Column(
-children: <Widget>[
-        SizedBox(height: 40,),
-        Image.asset('assets/applogo.jpg',height: 40,),
-        Text("Watch to donate",style: TextStyle(fontSize: 27,fontWeight: FontWeight.bold),),
-        SizedBox(height: 25,),
-        SizedBox(
-      height: MediaQuery.of(context).size.height * 0.36,
-     
-
-      child: PageView(
-        
-        controller: pageController,
+    return Scaffold(
+      body: Stack(
         children: <Widget>[
-          SlidingCard(
-            name: 'Gel Pack (x1000)',
-            date: 'Lorem Ipsum has been the industrys standard dummy t...',
-            img: 'assets/hospital.jpeg',
-            per: 10,
-            
-          ),
-          SlidingCard(
-            name: 'Gel Pack (x1000)',
-            date: 'Lorem Ipsum has been the industrys standard dummy t...',
-            img: 'assets/hospital.jpeg',
-            per: 10,
-            
-          ),
-        ],
-      ),
-    ),
-    Text("Important Project" ,style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
-    SizedBox(
-      height: MediaQuery.of(context).size.height * 0.36,
-     
-
-      child: PageView(
-        
-        controller: pageController,
-        children: <Widget>[
-          SlidingCard(
-            name: 'Gel Pack (x1000)',
-            date: 'Lorem Ipsum has been the industrys standard dummy t...',
-            img: 'assets/hospital.jpeg',
-            per: 10,
-            
-          ),
-          SlidingCard(
-            name: 'Gel Pack (x1000)',
-            date: 'Lorem Ipsum has been the industrys standard dummy t...',
-            img: 'assets/hospital.jpeg',
-            per: 10,
-            
-          ),
-        ],
-      ),
-    ),
-    Container(
-          
-          width: 140.0,
-          height: 50.0,
-          child : RaisedButton(
-            color: maincolor,
-            child: Row( 
-              mainAxisAlignment: MainAxisAlignment.center,       
-              children: <Widget>[  
-                
-                Text("Veiw All",style: TextStyle(fontSize: 20,color: Colors.white),)
+          Container(
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 40,
+                ),
+                Image.asset(
+                  'assets/applogo.jpg',
+                  height: 40,
+                ),
+                Text(
+                  "Watch to donate",
+                  style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.36,
+                  child: PageView(
+                    controller: pageController,
+                    children: <Widget>[
+                      SlidingCard(
+                        name: 'Gel Pack (x1000)',
+                        date:
+                            'Lorem Ipsum has been the industrys standard dummy t...',
+                        img: 'assets/hospital.jpeg',
+                        per: 10,
+                      ),
+                      SlidingCard(
+                        name: 'Gel Pack (x1000)',
+                        date:
+                            'Lorem Ipsum has been the industrys standard dummy t...',
+                        img: 'assets/hospital.jpeg',
+                        per: 10,
+                      ),
+                    ],
+                  ),
+                ),
+                Text(
+                  "Important Project",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.36,
+                  child: PageView(
+                    controller: pageController,
+                    children: <Widget>[
+                      SlidingCard(
+                        name: 'Gel Pack (x1000)',
+                        date:
+                            'Lorem Ipsum has been the industrys standard dummy t...',
+                        img: 'assets/hospital.jpeg',
+                        per: 10,
+                      ),
+                      SlidingCard(
+                        name: 'Gel Pack (x1000)',
+                        date:
+                            'Lorem Ipsum has been the industrys standard dummy t...',
+                        img: 'assets/hospital.jpeg',
+                        per: 10,
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  width: 140.0,
+                  height: 50.0,
+                  child: RaisedButton(
+                    color: maincolor,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "Veiw All",
+                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        )
+                      ],
+                    ),
+                    onPressed: () {},
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(26),
+                          topLeft: Radius.circular(120),
+                          bottomLeft: Radius.circular(26),
+                          bottomRight: Radius.circular(126)),
+                    ),
+                  ),
+                ),
               ],
             ),
-            onPressed: () {},
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(topRight: Radius.circular(26),topLeft: Radius.circular(120),bottomLeft: Radius.circular(26),bottomRight: Radius.circular(126)),
+          ),
+          Positioned(
+            bottom: 0,
+            child: Container(
+                height: MediaQuery.of(context).size.height * 0.9,
+                width: 55,
+                alignment: Alignment.bottomCenter,
+                decoration: new BoxDecoration(
+                  color: navcolor,
+                  borderRadius: new BorderRadius.only(
+                    topRight: const Radius.circular(80.0),
+                  ),
+                ),
+                child: Column(
+                    children: <Widget>[
+                      SizedBox(height : MediaQuery.of(context).size.height * 0.05,),
+                      Icon(Icons.menu),
+                      SizedBox(height : MediaQuery.of(context).size.height * 0.1,),
+                      RotatedBox(
+      quarterTurns: -1,
+      child: Text("My Profile",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+          ),
+          SizedBox(height : MediaQuery.of(context).size.height * 0.15,),
+RotatedBox(
+      quarterTurns: -1,
+      child: Text("Ranking",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+          ),
+          SizedBox(height : MediaQuery.of(context).size.height * 0.15,),
+          RotatedBox(
+      quarterTurns: -1,
+      child: Text("Home",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+          ),
+          SizedBox(height : MediaQuery.of(context).size.height * 0.12,),
+          Icon(Icons.notifications),
+
+                    ],
+                ),
             ),
           ),
-        ),
-],),)
-        
-    ],),
-    )
-    
-    ;
- 
- }
-
+        ],
+      ),
+    );
+  }
 }
-
-
 
 class SlidingCard extends StatelessWidget {
   final String name; //<-- title of the event
@@ -154,83 +178,90 @@ class SlidingCard extends StatelessWidget {
     @required this.date,
     @required this.img,
     @required this.per,
-    
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      
       margin: EdgeInsets.only(left: 8, right: 8, bottom: 20),
       elevation: 10,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)), //<--custom shape
-      
-      child: Column(  
-         
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(24)), //<--custom shape
+
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Row(
             children: <Widget>[
-          CircleAvatar( 
-          radius: 60,
-          backgroundImage: AssetImage(img,),
-        ),
-        Spacer(),  
-       
-        Container(
-          
-          width: 60.0,
-          height: 40.0,
-          child : RaisedButton(
-            color: scndcolor,
-            child: Row(        
-              children: <Widget>[  
-                Icon(Icons.share, color: Colors.white,),
-              ],
-            ),
-            onPressed: () {},
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(2),bottomLeft: Radius.circular(20),bottomRight: Radius.circular(2)),
-            ),
-          ),
-        ),
-            ],
-      ),
-          SizedBox(height: 20),
-
-          
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              
-              Text("Textand persentage",style: TextStyle(color: maincolor,fontSize: 12),),
-              SizedBox(height: 4,),
+              CircleAvatar(
+                radius: 60,
+                backgroundImage: AssetImage(
+                  img,
+                ),
+              ),
+              Spacer(),
               Container(
-           /* padding: new EdgeInsets.all(20.0),*/
-            width: MediaQuery.of(context).size.width * 0.55,
-            height: 5.0,
-            color: scndcolor,
-            alignment: Alignment.centerLeft, // where to position the child
-            child: Container(
-              width: MediaQuery.of(context).size.width * 0.2,
-              height: 5.0,
-              color: maincolor,
-            ),
+                width: 60.0,
+                height: 40.0,
+                child: RaisedButton(
+                  color: scndcolor,
+                  child: Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.share,
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
+                  onPressed: () {},
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(20),
+                        topLeft: Radius.circular(2),
+                        bottomLeft: Radius.circular(20),
+                        bottomRight: Radius.circular(2)),
+                  ),
+                ),
+              ),
+            ],
           ),
-            ]
-          ),
+          SizedBox(height: 20),
+          Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  "Textand persentage",
+                  style: TextStyle(color: maincolor, fontSize: 12),
+                ),
+                SizedBox(
+                  height: 4,
+                ),
+                Container(
+                  /* padding: new EdgeInsets.all(20.0),*/
+                  width: MediaQuery.of(context).size.width * 0.55,
+                  height: 5.0,
+                  color: scndcolor,
+                  alignment:
+                      Alignment.centerLeft, // where to position the child
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    height: 5.0,
+                    color: maincolor,
+                  ),
+                ),
+              ]),
           Expanded(
-            child: CardContent( //<--replace the Container with CardContent
-          name: name,
-          date: date,
-        ), //<-- will be replaced soon :)
+            child: CardContent(
+              //<--replace the Container with CardContent
+              name: name,
+              date: date,
+            ), //<-- will be replaced soon :)
           ),
         ],
       ),
     );
   }
 }
-
 
 class CardContent extends StatelessWidget {
   final String name;
@@ -242,12 +273,13 @@ class CardContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-     /* padding: const EdgeInsets.all(20.0),*/
-      padding : const EdgeInsets.only(bottom: 18,top: 14,left: 20,right: 20),
+      /* padding: const EdgeInsets.all(20.0),*/
+      padding: const EdgeInsets.only(bottom: 18, top: 14, left: 20, right: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(name, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+          Text(name,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           SizedBox(height: 6),
           Text(date, style: TextStyle(color: Colors.grey)),
           Spacer(),
