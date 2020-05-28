@@ -31,21 +31,22 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
       children: <Widget>[
         SizedBox(height: 30,),
         Image.asset('assets/applogo.jpg',height: 100,),
-        Text("Watch"),
+        Text("Watch to donate"),
         SizedBox(
-      height: MediaQuery.of(context).size.height * 0.55,
+      height: MediaQuery.of(context).size.height * 0.7,
       child: PageView(
+        
         controller: pageController,
         children: <Widget>[
           SlidingCard(
             name: 'Shenzhen GLOBAL DESIGN AWARD 2018',
             date: '4.20-30',
-            assetName: 'steve-johnson.jpeg',
+            assetName: 'hospital.jpeg', 
           ),
           SlidingCard(
             name: 'Dawan District, Guangdong Hong Kong and Macao',
             date: '4.28-31',
-            assetName: 'rodion-kutsaev.jpeg',
+            assetName: 'hospital.jpeg',
           ),
         ],
       ),
@@ -75,20 +76,62 @@ class SlidingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.only(left: 8, right: 8, bottom: 24),
+      margin: EdgeInsets.only(left: 8, right: 8, bottom: 20),
       elevation: 8,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)), //<--custom shape
-      child: Column(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)), //<--custom shape
+      child: Column(  
         children: <Widget>[
-          ClipRRect(  //<--clipping image
-            borderRadius: BorderRadius.vertical(top: Radius.circular(32)), 
-            child: Image.asset( //<-- main image
-              'assets/$assetName',
-              height: MediaQuery.of(context).size.height * 0.3,
-              fit: BoxFit.none,
+          Row(
+            children: <Widget>[
+          CircleAvatar( 
+          radius: 60,
+          backgroundImage: AssetImage('assets/hospital.jpeg',),
+        ),
+        Spacer(),
+        Container(
+          width: 40.0,
+          height: 32.0,
+          child : RaisedButton(
+            color: Color(0XFFFF0000),
+            child: Row(
+              children: <Widget>[  
+                Icon(Icons.share, color: Colors.white,),
+              ],
+            ),
+            onPressed: () {},
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(32),
             ),
           ),
-          SizedBox(height: 8),
+        ),
+            ],
+      ),
+
+     /*   RaisedButton(
+                
+                color: Color(0xFF162A49),
+                child: Text('Reserve'),
+                textColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(32),
+                ),
+                onPressed: () {},
+              ),*/
+      /*    Container(  //<--clipping image
+          height: 100,
+          width: 100,
+             decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(50.0)),
+              color: Colors.redAccent,
+            ), 
+            child: Image.asset( //<-- main image
+              'assets/$assetName',
+              /*height: MediaQuery.of(context).size.height * 0.3,*/
+
+             /* fit: BoxFit.none,*/
+            ),
+          ),*/
+          SizedBox(height: 20),
           Expanded(
             child: CardContent( //<--replace the Container with CardContent
           name: name,
@@ -117,7 +160,7 @@ class CardContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(name, style: TextStyle(fontSize: 20)),
-          SizedBox(height: 8),
+          SizedBox(height: 0),
           Text(date, style: TextStyle(color: Colors.grey)),
           Spacer(),
           Row(
@@ -133,7 +176,7 @@ class CardContent extends StatelessWidget {
               ),
               Spacer(),
               Text(
-                '0.00 \$',
+                '2.00 \$',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
