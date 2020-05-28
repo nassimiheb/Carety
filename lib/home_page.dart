@@ -15,7 +15,7 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
   @override
   void initState() {
     super.initState();
-    pageController = PageController(viewportFraction: 0.7);
+    pageController = PageController(viewportFraction: 0.6);
   }
 
   @override
@@ -30,6 +30,7 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
       body: Stack(
         children: <Widget>[
           Container(
+            
             child: Column(
               children: <Widget>[
                 SizedBox(
@@ -44,10 +45,18 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
                   style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
-                  height: 25,
+                  height: 15,
+                ),
+                
+                Text(
+                  "Important Project",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.36,
+                  height: 15,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.31,
                   child: PageView(
                     controller: pageController,
                     children: <Widget>[
@@ -68,12 +77,16 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
                     ],
                   ),
                 ),
+                
                 Text(
                   "Important Project",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.36,
+                  height: 15,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.31,
                   child: PageView(
                     controller: pageController,
                     children: <Widget>[
@@ -124,39 +137,60 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
           Positioned(
             bottom: 0,
             child: Container(
-                height: MediaQuery.of(context).size.height * 0.9,
-                width: 55,
-                alignment: Alignment.bottomCenter,
-                decoration: new BoxDecoration(
-                  color: navcolor,
-                  borderRadius: new BorderRadius.only(
-                    topRight: const Radius.circular(80.0),
+              height: MediaQuery.of(context).size.height * 0.9,
+              width: 55,
+              alignment: Alignment.bottomCenter,
+              decoration: new BoxDecoration(
+                color: navcolor,
+                borderRadius: new BorderRadius.only(
+                  topRight: const Radius.circular(80.0),
+                ),
+              ),
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.05,
                   ),
-                ),
-                child: Column(
-                    children: <Widget>[
-                      SizedBox(height : MediaQuery.of(context).size.height * 0.05,),
-                      Icon(Icons.menu),
-                      SizedBox(height : MediaQuery.of(context).size.height * 0.1,),
-                      RotatedBox(
-      quarterTurns: -1,
-      child: Text("My Profile",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-          ),
-          SizedBox(height : MediaQuery.of(context).size.height * 0.15,),
-RotatedBox(
-      quarterTurns: -1,
-      child: Text("Ranking",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-          ),
-          SizedBox(height : MediaQuery.of(context).size.height * 0.15,),
-          RotatedBox(
-      quarterTurns: -1,
-      child: Text("Home",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-          ),
-          SizedBox(height : MediaQuery.of(context).size.height * 0.12,),
-          Icon(Icons.notifications),
-
-                    ],
-                ),
+                  Icon(Icons.menu),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.1,
+                  ),
+                  RotatedBox(
+                    quarterTurns: -1,
+                    child: Text(
+                      "My Profile",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.15,
+                  ),
+                  RotatedBox(
+                    quarterTurns: -1,
+                    child: Text(
+                      "Ranking",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.15,
+                  ),
+                  RotatedBox(
+                    quarterTurns: -1,
+                    child: Text(
+                      "Home",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.12,
+                  ),
+                  Icon(Icons.notifications),
+                ],
+              ),
             ),
           ),
         ],
@@ -183,7 +217,7 @@ class SlidingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.only(left: 8, right: 8, bottom: 20),
+      margin: EdgeInsets.only(left: 20, right: 7, bottom: 20),
       elevation: 10,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24)), //<--custom shape
@@ -194,7 +228,7 @@ class SlidingCard extends StatelessWidget {
           Row(
             children: <Widget>[
               CircleAvatar(
-                radius: 60,
+                radius: 43,
                 backgroundImage: AssetImage(
                   img,
                 ),
@@ -225,7 +259,7 @@ class SlidingCard extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 10),
           Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -238,13 +272,13 @@ class SlidingCard extends StatelessWidget {
                 ),
                 Container(
                   /* padding: new EdgeInsets.all(20.0),*/
-                  width: MediaQuery.of(context).size.width * 0.55,
+                  width: MediaQuery.of(context).size.width * 0.4,
                   height: 5.0,
                   color: scndcolor,
                   alignment:
                       Alignment.centerLeft, // where to position the child
                   child: Container(
-                    width: MediaQuery.of(context).size.width * 0.2,
+                    width: MediaQuery.of(context).size.width * 0.13,
                     height: 5.0,
                     color: maincolor,
                   ),
@@ -279,9 +313,9 @@ class CardContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(name,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
           SizedBox(height: 6),
-          Text(date, style: TextStyle(color: Colors.grey)),
+          Text(date, style: TextStyle(fontSize: 12,color: Colors.grey,)),
           Spacer(),
         ],
       ),
