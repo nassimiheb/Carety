@@ -89,8 +89,8 @@ class SlidingCard extends StatelessWidget {
         ),
         Spacer(),
         Container(
-          width: 40.0,
-          height: 32.0,
+          width: 60.0,
+          height: 40.0,
           child : RaisedButton(
             color: Color(0XFFFF0000),
             child: Row(
@@ -100,7 +100,7 @@ class SlidingCard extends StatelessWidget {
             ),
             onPressed: () {},
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(32),
+              borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(2),bottomLeft: Radius.circular(20),bottomRight: Radius.circular(2)),
             ),
           ),
         ),
