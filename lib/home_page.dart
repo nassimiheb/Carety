@@ -234,14 +234,19 @@ class SlidingCard extends StatelessWidget {
         children: <Widget>[
           Row(
             children: <Widget>[
+              Container(
+                margin: EdgeInsets.only(left: 0,),
+                child :
               CircleAvatar(
                 radius: 43,
                 backgroundImage: AssetImage(
                   img,
                 ),
               ),
+              ),
               Spacer(),
               Container(
+                margin: EdgeInsets.only(right: 10, bottom: 25),
                 width: 60.0,
                 height: 40.0,
                 child: RaisedButton(
