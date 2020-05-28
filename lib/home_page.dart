@@ -7,14 +7,15 @@ class SlidingCardsView extends StatefulWidget {
   @override
   _SlidingCardsViewState createState() => _SlidingCardsViewState();
 }
-
+const maincolor = const Color(0xffFF3636);
+const scndcolor = const Color(0xffFF9999);
 class _SlidingCardsViewState extends State<SlidingCardsView> {
   PageController pageController;
-
+  
   @override
   void initState() {
     super.initState();
-    pageController = PageController(viewportFraction: 0.8);
+    pageController = PageController(viewportFraction: 0.7);
   }
 
   @override
@@ -26,28 +27,31 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
   @override
   Widget build(BuildContext context) {
     return 
-    Scaffold(body: 
+    Scaffold(body:
     Column(
       children: <Widget>[
-        SizedBox(height: 30,),
-        Image.asset('assets/applogo.jpg',height: 100,),
-        Text("Watch to donate"),
+        SizedBox(height: 40,),
+        Image.asset('assets/applogo.jpg',height: 40,),
+        Text("Watch to donate",style: TextStyle(fontSize: 27,fontWeight: FontWeight.bold),),
+        SizedBox(height: 25,),
         SizedBox(
-      height: MediaQuery.of(context).size.height * 0.4,
+      height: MediaQuery.of(context).size.height * 0.36,
+     
+
       child: PageView(
         
         controller: pageController,
         children: <Widget>[
           SlidingCard(
             name: 'Gel Pack (x1000)',
-            date: 'Lorem Ipsum has been the industrys standard dummy text ever since the...',
+            date: 'Lorem Ipsum has been the industrys standard dummy t...',
             img: 'assets/hospital.jpeg',
             per: 10,
             
           ),
           SlidingCard(
             name: 'Gel Pack (x1000)',
-            date: 'Lorem Ipsum has been the industrys standard dummy text ever since the...',
+            date: 'Lorem Ipsum has been the industrys standard dummy t...',
             img: 'assets/hospital.jpeg',
             per: 10,
             
@@ -55,8 +59,53 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
         ],
       ),
     ),
-    ],)
+    Text("Important Project" ,style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+    SizedBox(
+      height: MediaQuery.of(context).size.height * 0.36,
+     
+
+      child: PageView(
+        
+        controller: pageController,
+        children: <Widget>[
+          SlidingCard(
+            name: 'Gel Pack (x1000)',
+            date: 'Lorem Ipsum has been the industrys standard dummy t...',
+            img: 'assets/hospital.jpeg',
+            per: 10,
+            
+          ),
+          SlidingCard(
+            name: 'Gel Pack (x1000)',
+            date: 'Lorem Ipsum has been the industrys standard dummy t...',
+            img: 'assets/hospital.jpeg',
+            per: 10,
+            
+          ),
+        ],
+      ),
+    ),
+    Container(
+          
+          width: 140.0,
+          height: 50.0,
+          child : RaisedButton(
+            color: maincolor,
+            child: Row(        
+              children: <Widget>[  
+                
+                Text("Veiw All",style: TextStyle(fontSize: 20,color: Colors.white),)
+              ],
+            ),
+            onPressed: () {},
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(topRight: Radius.circular(26),topLeft: Radius.circular(120),bottomLeft: Radius.circular(26),bottomRight: Radius.circular(126)),
+            ),
+          ),
+        ),
+    ],),
     )
+    
     ;
  
  }
@@ -84,8 +133,9 @@ class SlidingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      
       margin: EdgeInsets.only(left: 8, right: 8, bottom: 20),
-      elevation: 8,
+      elevation: 10,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)), //<--custom shape
       
       child: Column(  
@@ -95,7 +145,7 @@ class SlidingCard extends StatelessWidget {
           Row(
             children: <Widget>[
           CircleAvatar( 
-          radius: 70,
+          radius: 60,
           backgroundImage: AssetImage(img,),
         ),
         Spacer(),  
@@ -105,7 +155,7 @@ class SlidingCard extends StatelessWidget {
           width: 60.0,
           height: 40.0,
           child : RaisedButton(
-            color: Color(0XFFFF0000),
+            color: scndcolor,
             child: Row(        
               children: <Widget>[  
                 Icon(Icons.share, color: Colors.white,),
@@ -126,23 +176,22 @@ class SlidingCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               
-              Text("Textand persentage"),
-              SizedBox(height: 6,),
+              Text("Textand persentage",style: TextStyle(color: maincolor,fontSize: 12),),
+              SizedBox(height: 4,),
               Container(
            /* padding: new EdgeInsets.all(20.0),*/
-            width: 235.0,
+            width: MediaQuery.of(context).size.width * 0.55,
             height: 5.0,
-            color: Colors.orange,
+            color: scndcolor,
             alignment: Alignment.centerLeft, // where to position the child
             child: Container(
-              width: 190.0,
+              width: MediaQuery.of(context).size.width * 0.2,
               height: 5.0,
-              color: Colors.blue,
+              color: maincolor,
             ),
           ),
             ]
           ),
-        
           Expanded(
             child: CardContent( //<--replace the Container with CardContent
           name: name,
@@ -166,7 +215,8 @@ class CardContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+     /* padding: const EdgeInsets.all(20.0),*/
+      padding : const EdgeInsets.only(bottom: 18,top: 14,left: 20,right: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
