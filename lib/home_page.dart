@@ -48,6 +48,7 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
                 SizedBox(
                   height: 15,
                 ),
+
                 Tabs(),
                 
                 Text(
@@ -109,6 +110,9 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
                     ],
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.only(left : 170),
+                  child:
                 Container(
                   width: 140.0,
                   height: 50.0,
@@ -132,6 +136,7 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
                           bottomRight: Radius.circular(126)),
                     ),
                   ),
+                ),
                 ),
               ],
             ),
@@ -219,7 +224,7 @@ class SlidingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.only(left: 20, right: 7, bottom: 20),
+      margin: EdgeInsets.only(left: 15, right: 7, bottom: 20),
       elevation: 10,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24)), //<--custom shape
