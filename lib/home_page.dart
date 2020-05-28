@@ -9,6 +9,7 @@ class SlidingCardsView extends StatefulWidget {
 }
 const maincolor = const Color(0xffFF3636);
 const scndcolor = const Color(0xffFF9999);
+const navcolor = const Color(0xffFFEDED);
 class _SlidingCardsViewState extends State<SlidingCardsView> {
   PageController pageController;
   
@@ -28,8 +29,31 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
   Widget build(BuildContext context) {
     return 
     Scaffold(body:
-    Column(
-      children: <Widget>[
+    
+        Stack(
+          
+         children: <Widget>[
+         Positioned(
+           bottom: 0,
+            child:  Container(
+         
+             height: MediaQuery.of(context).size.height * 0.9,
+             width: 55,
+            alignment: Alignment.bottomCenter,
+             decoration: new BoxDecoration(
+              color: navcolor,
+              borderRadius: new BorderRadius.only(
+                
+                topRight: const Radius.circular(80.0),
+              ),)
+             
+              
+            
+    ),
+          ),
+          
+        Container(child: Column(
+children: <Widget>[
         SizedBox(height: 40,),
         Image.asset('assets/applogo.jpg',height: 40,),
         Text("Watch to donate",style: TextStyle(fontSize: 27,fontWeight: FontWeight.bold),),
@@ -91,7 +115,8 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
           height: 50.0,
           child : RaisedButton(
             color: maincolor,
-            child: Row(        
+            child: Row( 
+              mainAxisAlignment: MainAxisAlignment.center,       
               children: <Widget>[  
                 
                 Text("Veiw All",style: TextStyle(fontSize: 20,color: Colors.white),)
@@ -103,6 +128,8 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
             ),
           ),
         ),
+],),)
+        
     ],),
     )
     
