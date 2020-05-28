@@ -33,20 +33,24 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
         Image.asset('assets/applogo.jpg',height: 100,),
         Text("Watch to donate"),
         SizedBox(
-      height: MediaQuery.of(context).size.height * 0.7,
+      height: MediaQuery.of(context).size.height * 0.4,
       child: PageView(
         
         controller: pageController,
         children: <Widget>[
           SlidingCard(
-            name: 'Shenzhen GLOBAL DESIGN AWARD 2018',
-            date: '4.20-30',
-            assetName: 'hospital.jpeg', 
+            name: 'Gel Pack (x1000)',
+            date: 'Lorem Ipsum has been the industrys standard dummy text ever since the...',
+            img: 'assets/hospital.jpeg',
+            per: 10,
+            
           ),
           SlidingCard(
-            name: 'Dawan District, Guangdong Hong Kong and Macao',
-            date: '4.28-31',
-            assetName: 'hospital.jpeg',
+            name: 'Gel Pack (x1000)',
+            date: 'Lorem Ipsum has been the industrys standard dummy text ever since the...',
+            img: 'assets/hospital.jpeg',
+            per: 10,
+            
           ),
         ],
       ),
@@ -64,13 +68,17 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
 class SlidingCard extends StatelessWidget {
   final String name; //<-- title of the event
   final String date; //<-- date of the event
-  final String assetName; //<-- name of the image to be displayed
+  final String img;
+  final int per;
+  //<-- name of the image to be displayed
 
   const SlidingCard({
     Key key,
     @required this.name,
     @required this.date,
-    @required this.assetName,
+    @required this.img,
+    @required this.per,
+    
   }) : super(key: key);
 
   @override
@@ -79,21 +87,26 @@ class SlidingCard extends StatelessWidget {
       margin: EdgeInsets.only(left: 8, right: 8, bottom: 20),
       elevation: 8,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)), //<--custom shape
+      
       child: Column(  
+         
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Row(
             children: <Widget>[
           CircleAvatar( 
-          radius: 60,
-          backgroundImage: AssetImage('assets/hospital.jpeg',),
+          radius: 70,
+          backgroundImage: AssetImage(img,),
         ),
-        Spacer(),
+        Spacer(),  
+       
         Container(
+          
           width: 60.0,
           height: 40.0,
           child : RaisedButton(
             color: Color(0XFFFF0000),
-            child: Row(
+            child: Row(        
               children: <Widget>[  
                 Icon(Icons.share, color: Colors.white,),
               ],
@@ -106,32 +119,30 @@ class SlidingCard extends StatelessWidget {
         ),
             ],
       ),
-
-     /*   RaisedButton(
-                
-                color: Color(0xFF162A49),
-                child: Text('Reserve'),
-                textColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(32),
-                ),
-                onPressed: () {},
-              ),*/
-      /*    Container(  //<--clipping image
-          height: 100,
-          width: 100,
-             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(50.0)),
-              color: Colors.redAccent,
-            ), 
-            child: Image.asset( //<-- main image
-              'assets/$assetName',
-              /*height: MediaQuery.of(context).size.height * 0.3,*/
-
-             /* fit: BoxFit.none,*/
-            ),
-          ),*/
           SizedBox(height: 20),
+
+          
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              
+              Text("Textand persentage"),
+              SizedBox(height: 6,),
+              Container(
+           /* padding: new EdgeInsets.all(20.0),*/
+            width: 235.0,
+            height: 5.0,
+            color: Colors.orange,
+            alignment: Alignment.centerLeft, // where to position the child
+            child: Container(
+              width: 190.0,
+              height: 5.0,
+              color: Colors.blue,
+            ),
+          ),
+            ]
+          ),
+        
           Expanded(
             child: CardContent( //<--replace the Container with CardContent
           name: name,
@@ -155,36 +166,14 @@ class CardContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(20.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(name, style: TextStyle(fontSize: 20)),
-          SizedBox(height: 0),
+          Text(name, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+          SizedBox(height: 6),
           Text(date, style: TextStyle(color: Colors.grey)),
           Spacer(),
-          Row(
-            children: <Widget>[
-              RaisedButton(
-                color: Color(0xFF162A49),
-                child: Text('Reserve'),
-                textColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(32),
-                ),
-                onPressed: () {},
-              ),
-              Spacer(),
-              Text(
-                '2.00 \$',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
-              ),
-              SizedBox(width: 16),
-            ],
-          )
         ],
       ),
     );
