@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'tabs.dart';
 
 class SlidingCardsView extends StatefulWidget {
   @override
@@ -47,6 +48,7 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
                 SizedBox(
                   height: 15,
                 ),
+                Tabs(),
                 
                 Text(
                   "Important Project",
