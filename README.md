@@ -10,7 +10,7 @@
 
 ## Preview
 ### Landing_Page 
-![](assets</1.png)
+![](assets/1.png)
 ### Main_Page
 ![](assets/2.png)
 
