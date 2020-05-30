@@ -1,8 +1,13 @@
+import 'package:carety/congrat_page.dart';
+import 'package:carety/login_page.dart';
+import 'package:carety/profil_page.dart';
+import 'package:carety/signin_page.dart';
 import 'package:flutter/material.dart';
 
 
 import 'package:introduction_screen/introduction_screen.dart';
 
+import 'ad_page.dart';
 import 'home_page.dart';
 
 
