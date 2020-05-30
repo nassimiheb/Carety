@@ -1,4 +1,4 @@
-<img src="assets/applogo.png"  align="right" height="100" />
+<img src="assets/applogo.png"  align="right" height="40" />
 
 # Carety
 > Flutter project
