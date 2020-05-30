@@ -10,7 +10,7 @@
 
 ## Preview
 ### Landing_Page 
-![](assets/1.png height="200")
+<img src="assets/applogo.png"  align="center" height="200" />
 ### Main_Page
 ![](assets/2.png)
 
