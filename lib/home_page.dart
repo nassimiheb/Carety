@@ -69,7 +69,6 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
                 ),
 
                 Tabs(),
-
                 Text(
                   "Important Project",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),

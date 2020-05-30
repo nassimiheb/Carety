@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 const issel = const Color(0xffFF3636);
-
 class Tabs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
