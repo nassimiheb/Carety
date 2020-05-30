@@ -10,9 +10,9 @@
 
 ## Preview
 ### Landing_Page 
-<img src="assets/1.png"  align="center" height="200" />
+<img src="assets/1.png"  align="center" height="400" />
 ### Main_Page
-<img src="assets/1.png"  align="center" height="200" />
+<img src="assets/2.png"  align="center" height="400" />
 
 
 ## Authors
