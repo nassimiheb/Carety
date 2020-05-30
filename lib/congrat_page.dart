@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CongratPage extends StatefulWidget {
+ 
   @override
   _CongratPageState createState() => _CongratPageState();
 }

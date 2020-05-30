@@ -8,6 +8,10 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class SlidingCardsView extends StatefulWidget {
+  @required final String token;
+
+  const SlidingCardsView({Key key, this.token}) : super(key: key);
+  
   @override
   _SlidingCardsViewState createState() => _SlidingCardsViewState();
 }
@@ -20,14 +24,14 @@ PageController pageController;
 class _SlidingCardsViewState extends State<SlidingCardsView> {
   Future<List> getData() async {
     final response =
-        await http.get("https://carety-api.herokuapp.com/objectives");
+        await http.get("https://carety.herokuapp.com/objectives");
     //print(json.decode(response.body));
     return json.decode(response.body);
   }
 
   Future<List> getImportantObjectiveData() async {
     final response = await http
-        .get("https://carety-api.herokuapp.com/objectives/importantObjectives");
+        .get("https://carety.herokuapp.com/objectives");
     //print(json.decode(response.body));
     return json.decode(response.body);
   }
@@ -37,6 +41,7 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
     super.initState();
     pageController = PageController(viewportFraction: 0.6);
     this.getData();
+    print(widget.token);
   }
 
   @override
@@ -47,7 +52,11 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return
+    new WillPopScope(
+    onWillPop: () async => false,
+    child: 
+    Scaffold(
       body: Stack(
         children: <Widget>[
           Container(
@@ -84,6 +93,7 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
                     return snapshot.hasData
                         ? new ListItem(
                             list: snapshot.data,
+                            token: widget.token,
                           )
                         : new Center(
                             child: new CircularProgressIndicator(),
@@ -104,6 +114,7 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
                     return snapshot.hasData
                         ? new ListItem(
                             list: snapshot.data,
+                            token: widget.token,
                           )
                         : new Center(
                             child: new CircularProgressIndicator(),
@@ -121,7 +132,7 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            "Veiw All",
+                            "View All",
                             style: TextStyle(fontSize: 20, color: Colors.white),
                           )
                         ],
@@ -165,7 +176,7 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => ProfilePage()),
+                        MaterialPageRoute(builder: (context) => ProfilePage(token: widget.token,)),
                       );
                     },
                     child: RotatedBox(
@@ -222,14 +233,15 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
           ),
         ],
       ),
+    )
     );
   }
 }
 
 class ListItem extends StatelessWidget {
   final List list;
-
-  const ListItem({Key key, this.list}) : super(key: key);
+  final String token;
+  const ListItem({Key key, this.list, this.token}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -246,6 +258,7 @@ class ListItem extends StatelessWidget {
                 MaterialPageRoute(
                     builder: (context) => AdPage(
                           objectiveID: list[index]['_id'],
+                          token : token,
                         )),
               );
               

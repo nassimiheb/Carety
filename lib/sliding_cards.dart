@@ -9,8 +9,9 @@ import 'controllers/dataHelper.dart';
 
 class SlidingCardsView extends StatefulWidget {
   final String objectiveID;
+  final String token;
 
-  const SlidingCardsView({Key key, this.objectiveID}) : super(key: key);
+  const SlidingCardsView({Key key, this.objectiveID, this.token}) : super(key: key);
   @override
   _SlidingCardsViewState createState() => _SlidingCardsViewState();
 }
@@ -206,7 +207,7 @@ class _SlidingCardState extends State<SlidingCard> {
                       ],
                     ),
                     onPressed: () {
-                      //update profile by adding point with timeWatched
+                      //update profile by adding point with timeWatched and token 
                       //dataHelper.editUserPoints(timeWatched~/15, timeWatched~/2);
                       //update Objective by adding point with timeWatched
                       

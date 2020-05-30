@@ -13,8 +13,9 @@ const String testDevices = 'Mobile_id';
 
 class AdPage extends StatefulWidget {
   final String objectiveID;
+  final String token;
 
-  const AdPage({Key key, this.objectiveID}) : super(key: key);
+  const AdPage({Key key, this.objectiveID, this.token}) : super(key: key);
   @override
   _AdPageState createState() => _AdPageState();
 }
@@ -50,7 +51,7 @@ class _AdPageState extends State<AdPage> {
                 Header(),
                 SizedBox(height: 80),
                
-                SlidingCardsView(objectiveID: widget.objectiveID,),
+                SlidingCardsView(objectiveID: widget.objectiveID, token: widget.token),
               ],
             ),
           ),

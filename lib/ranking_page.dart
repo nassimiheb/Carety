@@ -19,7 +19,7 @@ class User {
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      id: json['userName'],
+      id: json['_id'],
       points: json['points'],
       views: json['views'],
     );
@@ -31,8 +31,12 @@ const scndcolor = const Color(0xffFF9999);
 const navcolor = const Color(0xffFFEDED);
 
 class UsersListView extends StatelessWidget {
-  BuildContext get context => null;
+  
+  @required final String token; 
+  const UsersListView({Key key, this.token}) : super(key: key);
 
+  BuildContext get context => null;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -137,7 +141,7 @@ class UsersListView extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => ProfilePage()),
+                        MaterialPageRoute(builder: (context) => ProfilePage(token: token,)),
                       );
                     },
                     child:RotatedBox(
@@ -203,11 +207,11 @@ class UsersListView extends StatelessWidget {
     return ListView.builder(
         itemCount: data.length,
         itemBuilder: (context, index) {
-          return _tile(data[index].id, data[index].points,data[index].views, Icons.work);
+          return _tile(data[index].id, data[index].points, Icons.work);
         });
   }
 
-  Widget _tile(String title, int subtitle,int views, IconData icon) {
+  Widget _tile(String title, int subtitle, IconData icon) {
     return Container(
       height: 65,
       width: 200,
@@ -237,7 +241,7 @@ class UsersListView extends StatelessWidget {
                 Spacer(),
                 Spacer(),
                 Spacer(),
-                Text(views.toString()),
+                Text(subtitle.toString()),
                 Spacer(),
                 Spacer(),
                 Spacer(),

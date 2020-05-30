@@ -1,5 +1,8 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
 
+import 'package:carety/home_page.dart';
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'controllers/dataHelper.dart';
 
 class Signin_page extends StatefulWidget {
@@ -12,7 +15,38 @@ const orangeX = const Color(0xFFF9657F);
 class _Signin_pageState extends State<Signin_page> {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
+  String token="test";
     DataHelper dataHelper = new DataHelper();
+
+
+
+   void login(String username,String password) async {
+  
+
+    String myUrl = "https://carety.herokuapp.com/login";
+    http.post(myUrl,
+    headers: {HttpHeaders.authorizationHeader:""},
+        body: {
+         "email" : "$username",
+         "password" :"$password",
+        }).then((response){
+      print('Response status : ${response.statusCode}');
+      print('Response body : ${response.body}');
+      setState(() {
+        if(response.statusCode==200){
+
+           token= response.body.split(":")[1].split("\"")[1];
+            Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SlidingCardsView(token: token,)),
+                      );
+           }
+       
+      });
+
+    });
+    
+  }
   Widget _showAddressInput() {
     return Container(
       height: MediaQuery.of(context).size.height * 0.07,
@@ -53,7 +87,10 @@ class _Signin_pageState extends State<Signin_page> {
       height: 40.0,
       child: RaisedButton(
         onPressed: () {
-            dataHelper.login(usernameController.text, passwordController.text);
+           login(usernameController.text, passwordController.text);
+              
+           
+           
         },
         shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
@@ -88,6 +125,7 @@ class _Signin_pageState extends State<Signin_page> {
             0.0, MediaQuery.of(context).size.height * 0.02, 0.0, 0.0),
         height: 40.0,
         child: OutlineButton(
+          
             child: Container(
               alignment: Alignment.center,
               child: Text("Sign in with Google"),
@@ -95,7 +133,9 @@ class _Signin_pageState extends State<Signin_page> {
                   maxWidth: MediaQuery.of(context).size.width * 0.72,
                   minHeight: 50.0),
             ),
-            onPressed: null,
+            onPressed:(){
+               print(this.token);
+            },
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30.0))));
   }

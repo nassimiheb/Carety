@@ -1,9 +1,14 @@
+import 'dart:io';
+
 import 'package:carety/ranking_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class ProfilePage extends StatefulWidget {
+  @required final String token;
+
+  const ProfilePage({Key key, this.token}) : super(key: key);
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
@@ -11,11 +16,33 @@ class ProfilePage extends StatefulWidget {
 const navcolor = const Color(0xffFFEDED);
 
 class _ProfilePageState extends State<ProfilePage> {
+ List<User> _user = [];
+
+  void _fetchPosts() async {
+     
+    http.get('https://carety.herokuapp.com/users/profile',
+          headers: {HttpHeaders.authorizationHeader: widget.token}
+        ).then((response){
+          print('Response status : ${response.statusCode}');
+      print('Response body : ${response.body}');
+       final jsonResponse = json.decode(response.body);
+       print(jsonResponse);
+       
+            //final List<User> parsedResponse = jsonResponse.map((user) => new User.fromJson(user)).toList();
+            setState(() {
+             //_user.addAll(parsedResponse);
+          
+          });
+        });
+
+    
+  }
  
 
   @override
   void initState() {
     super.initState();
+    _fetchPosts();
    
   }
 
@@ -231,6 +258,36 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ],
       ),
+    );
+  }
+}
+
+
+class User {
+  //final int views;
+ // final int points;
+  final int views;
+ // final String email;
+ // final String password;
+ // final String userName;
+ 
+  User({
+   // this.views,
+   // this.points,
+    this.views,
+   // this.email,
+   // this.password,
+    //this.userName
+  });
+ 
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
+      //views: json['views'],
+      //points: json['points'],
+      views: json['views'],
+      //email: json['email'],
+     // password: json['password'],
+     // userName: json['userName'],
     );
   }
 }
