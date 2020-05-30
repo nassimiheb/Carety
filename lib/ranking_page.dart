@@ -18,7 +18,7 @@ class User {
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      id: json['_id'],
+      id: json['userName'],
       points: json['points'],
       views: json['views'],
     );
@@ -187,11 +187,11 @@ class UsersListView extends StatelessWidget {
     return ListView.builder(
         itemCount: data.length,
         itemBuilder: (context, index) {
-          return _tile(data[index].id, data[index].points, Icons.work);
+          return _tile(data[index].id, data[index].points,data[index].views, Icons.work);
         });
   }
 
-  Widget _tile(String title, int subtitle, IconData icon) {
+  Widget _tile(String title, int subtitle,int views, IconData icon) {
     return Container(
       height: 65,
       width: 200,
@@ -221,7 +221,7 @@ class UsersListView extends StatelessWidget {
                 Spacer(),
                 Spacer(),
                 Spacer(),
-                Text(subtitle.toString()),
+                Text(views.toString()),
                 Spacer(),
                 Spacer(),
                 Spacer(),
