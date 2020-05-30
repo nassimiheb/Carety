@@ -1,16 +1,29 @@
-# carety
+<img src="assets/applogo.png"  align="right" height="100" />
 
-A new Flutter project.
+# Carety
+> Flutter project
+>«Carety» est une application mobile offrant à l'utilisateur la possibilité de visualiser plusieurs vidéos de publicités provenant d'entreprises produites dans l'économie numérique afin de renforcer la commercialisation des produits rencontrant des difficultés durant cette pandémie tout en assolant r pour lutter contre le covid 19. 
 
-## Getting Started
+## Installation
 
-This project is a starting point for a Flutter application.
+- Not yet
 
-A few resources to get you started if this is your first Flutter project:
+## Preview
+### Landing_Page 
+![](assets</1.png)
+### Main_Page
+![](assets/2.png)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Authors
+- Iheb Nassim Aouadj
+- Ala Eddine Nasri
+- Ahmed Zaki Bennecer
+- Billel Benoudjit 
+
+
+## Contributions
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
